@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>CS171 - Lab 5</title>
+	<title>Meat Your Worst Nightmare</title>
 
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
@@ -21,11 +21,24 @@
 		<!-- Select box to choose the ranking type -->
 		<form class="form-inline">
 			<div class="form-group">
-<!--		    <label for="ranking-type">Group by</label>-->
-<!--		    <select class="form-control" id="ranking-type">-->
-<!--				  <option value="stores">Stores worldwide</option>-->
-<!--				  <option value="revenue">Revenue in billion U.S. dollars</option>-->
-<!--				</select>-->
+		    <label for="animal-type">Drag the animal into the slaughterhouse.</label>
+		    <form class="form-control" id="animal-type">
+				<label class="container">Beef
+					<input type="checkbox" name="beef" id="Beef Cattle" onchange="updateVisualization()" />
+				</label>
+				<label class="container">Dairy
+					<input type="checkbox" name="dairy" id="Dairy Cattle" onchange="updateVisualization()" />
+				</label>
+				<label class="container">Poultry
+					<input type="checkbox" name="poultry" id="Poultry" onchange="updateVisualization()" />
+				</label>
+				<label class="container">Pigs
+					<input type="checkbox" name="pigs" id="Swine" onchange="updateVisualization()" />
+				</label>
+				<label class="container">Bison
+					<input type="checkbox" name="bison" id="American Bison" onchange="updateVisualization()" />
+				</label>
+			</form>
 
 				<!-- Activity IV -->
 				<!--<button type="button" class="btn btn-link" id="change-sorting"><i class="glyphicon glyphicon-sort"></i> Sort</button>-->

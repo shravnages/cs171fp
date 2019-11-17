@@ -9,6 +9,7 @@ MethaneVis = function(_parentElement, _data) {
     this.parentElement = _parentElement;
     this.data = _data;
     this.filteredData = this.data;
+    console.log(this.data);
 
     this.initVis();
 }
@@ -49,21 +50,6 @@ MethaneVis.prototype.initVis = function(){
     vis.yAxis = d3.axisLeft()
         .scale(vis.y);
 
-    var dataCategories = colorScale.domain();
-
-    stack = d3.stack()
-        .keys(dataCategories);
-    vis.stackedData = stack(vis.data);
-    console.log(vis.stackedData);
-
-
-    vis.area = d3.area()
-        .curve(d3.curveCardinal)
-        .x(function(d) { return vis.x(d.data.name); })
-        .y0(function(d) { return vis.y(d[0]); })
-        .y1(function(d) { return vis.y(d[1]); });
-
-
     // Append axes
     vis.svg.append("g")
         .attr("class", "x-axis axis")
@@ -87,9 +73,40 @@ MethaneVis.prototype.initVis = function(){
 MethaneVis.prototype.wrangleData = function(){
 	var vis = this;
 
+    var gas_data = [];
+    var gas_object_CH4 = {};
+    gas_object_CH4["name"] = "CH4";
+    var gas_object_NO2 = {};
+    gas_object_NO2["name"] = "NO2";
+    var gas_object_Total = {};
+    gas_object_Total["name"] = "Total";
+    vis.filteredData.forEach(function(d) {
+        if (d["Livestock Category"] !== "Total") {
+            gas_object_CH4[d["Livestock Category"]] = d["Enteric Fermentation CH4"];
+            gas_object_NO2[d["Livestock Category"]] = d["Grazed Land N2O"];
+            gas_object_Total[d["Livestock Category"]] = d.Total;
+        }
+    });
+    gas_data.push(gas_object_NO2);
+    gas_data.push(gas_object_CH4);
+    gas_data.push(gas_object_Total);
+
+    var dataCategories = colorScale.domain();
+
+    stack = d3.stack()
+        .keys(dataCategories);
+    vis.stackedData = stack(gas_data);
     vis.displayData = vis.stackedData;
 
-	vis.updateVis();
+
+    vis.area = d3.area()
+        .curve(d3.curveCardinal)
+        .x(function(d) { return vis.x(d.data.name); })
+        .y0(function(d) { return vis.y(d[0]); })
+        .y1(function(d) { if(isNaN(vis.y(d[1]))) {return vis.y(d[0]) + 1;} return vis.y(d[1]); });
+
+
+    vis.updateVis();
 }
 
 
@@ -123,6 +140,9 @@ MethaneVis.prototype.updateVis = function(){
                 .attr('y', 15);
         });
 
+    categories.transition()
+        .duration(800);
+
     categories.exit().remove();
 
 	// Call axis function with the new domain 
@@ -131,17 +151,15 @@ MethaneVis.prototype.updateVis = function(){
 }
 
 
-MethaneVis.prototype.onSelectionChange = function(selectionStart, selectionEnd){
+MethaneVis.prototype.onSelectionChange = function(){
 	var vis = this;
 
-
-	// Filter original unfiltered data depending on selected time period (brush)
-
-	// *** TO-DO ***
-    //vis.filteredData = vis.data.filter(function(d){
-    // ...
     vis.filteredData = vis.data.filter(function(d){
-        return d.time >= selectionStart && d.time <= selectionEnd;
+        if (document.getElementById(d["Livestock Category"])) {
+            return document.getElementById(d["Livestock Category"]).checked;
+        } else {
+            return false;
+        }
     });
 
 	vis.wrangleData();
