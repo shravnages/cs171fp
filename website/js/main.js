@@ -54,7 +54,7 @@ function loadData() {
 
 		colorScale.domain(data.map(d=>d["Livestock Category"]));
 
-		methaneChart = new MethaneVis("methane-vis", gas_data);
+		methaneChart = new MethaneVis("chart-emission", gas_data);
 	});
 }
 
