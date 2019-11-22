@@ -45,7 +45,7 @@ MethaneTree.prototype.initVis = function(){
 
     console.log(vis.filteredData);
 
-    vis.margin = { top: 40, right: 0, bottom: 60, left: 60 };
+    vis.margin = { top: 0, right: 0, bottom: 60, left: 0 };
 
     vis.width = 650 - vis.margin.left - vis.margin.right,
         vis.height = 650 - vis.margin.top - vis.margin.bottom;
