@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>CS171 - Lab 5</title>
+	<title>Meat Your Worst Nightmare</title>
 
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
@@ -17,23 +17,15 @@
 
 		<h1>Greenhouse Gases For Each Meat</h1>
 		<h2></h2>
-
-		<!-- Select box to choose the ranking type -->
-		<form class="form-inline">
-			<div class="form-group">
-<!--		    <label for="ranking-type">Group by</label>-->
-<!--		    <select class="form-control" id="ranking-type">-->
-<!--				  <option value="stores">Stores worldwide</option>-->
-<!--				  <option value="revenue">Revenue in billion U.S. dollars</option>-->
-<!--				</select>-->
-
-				<!-- Activity IV -->
-				<!--<button type="button" class="btn btn-link" id="change-sorting"><i class="glyphicon glyphicon-sort"></i> Sort</button>-->
-		  </div>
-		</form>
 		
 		<!-- Parent container for the visualization -->
-		<div id="methane-vis"></div>
+		<div class="container">
+			<div id="row">
+				<div class="col" id="methane-vis"></div>
+				<div class="col" id="compare-chart"></div>
+			</div>
+		</div>
+		<button onclick="reset()">Reset</button>
 
 	</div>
 
@@ -46,7 +38,7 @@
 
 	<!-- Your implementation -->
 	<script src="js/main.js"></script>
-	<script src="js/methanevis.js"></script>
+	<script src="js/methanetree.js"></script>
 
 </body>
 </html>
