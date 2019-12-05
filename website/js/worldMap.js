@@ -7,8 +7,8 @@
 
 var colorMap;
 
-var colorScale = d3.scaleSequential(d3.interpolateInferno);
-
+var colorScale = d3.scaleLinear()
+    .range(["blue", "yellow"]);
 
 
 
@@ -90,6 +90,8 @@ WorldVis.prototype.createVisualization = function(){
 
     console.log(worldTopo);
 
+    var countryTooltip = d3.select("body").append("div").attr("class", "countryTooltip"),
+        countryList = d3.select("body").append("select").attr("name", "countries");
 
 
     // Render the world by using the path generator
@@ -102,17 +104,20 @@ WorldVis.prototype.createVisualization = function(){
             var countryName = d.properties.name;
             //console.log(console.log(vis.filteredData[countryName]));
 
+            console.log(countryName, vis.filteredData[countryName]);
+
             if (vis.filteredData[countryName] != undefined){
 
 
 
                 var rangeArray = d3.extent(Object.values(vis.filteredData));
+
                 var range = rangeArray[1] - rangeArray[0];
                 var incr = range/5;
 
-                console.log(rangeArray);
+                //console.log(rangeArray);
 
-                console.log(rangeArray[0], 2*(rangeArray[0]));
+                //console.log(rangeArray[0], 2*(rangeArray[0]));
 
                 //console.log(rangeArray)
 
@@ -120,16 +125,32 @@ WorldVis.prototype.createVisualization = function(){
 
                 colorScale.domain(rangeArray);
 
-                console.log(vis.filteredData[countryName]);
+                //console.log(vis.filteredData[countryName]);
 
-                console.log( colorScale(vis.filteredData[countryName]));
+               // console.log( colorScale(vis.filteredData[countryName]));
 
 
                 return colorScale(vis.filteredData[countryName]);
-            }
+            }})
+            .on("mouseover", function(d) {
+                console.log(d.properties)
+                console.log(d.properties.name);
+                countryTooltip.text(d.properties.name)
+                    .style("left", (d3.event.pageX + 7) + "px")
+                    .style("top", (d3.event.pageY - 15) + "px")
+                    .style("display", "block")
+                    .style("opacity", 1);
+            })
+                .on("mouseout", function(d) {
+                    countryTooltip.style("opacity", 0)
+                        .style("display", "none");
+                })
+                .on("mousemove", function(d) {
+                    countryTooltip.style("left", (d3.event.pageX + 7) + "px")
+                        .style("top", (d3.event.pageY - 15) + "px");
+                });
 
 
-        });
 
     var v0, // Mouse position in Cartesian coordinates at start of drag gesture.
         r0, // Projection rotation as Euler angles at start.
@@ -154,7 +175,8 @@ WorldVis.prototype.createVisualization = function(){
         vis.svg.insert("path")
             .datum({type: "Point", coordinates: vis.projection.invert(mouse_pos)})
             .attr("class", "point point-mouse")
-            .attr("d", vis.path);
+            .attr("d", vis.path)
+
 
     }
 
@@ -204,6 +226,28 @@ WorldVis.prototype.createVisualization = function(){
 
 
 
+
+    //Mouse events
+    //
+    // var countryTooltip = d3.select("body").append("div").attr("class", "countryTooltip");
+    //     //countryList = d3.select("body").append("select").attr("name", "countries");
+    //
+    // .on("mouseover", function(d) {
+    //     console.log(d)
+    //     // countryTooltip.text(countryById[d.id])
+    //     //     .style("left", (d3.event.pageX + 7) + "px")
+    //     //     .style("top", (d3.event.pageY - 15) + "px")
+    //     //     .style("display", "block")
+    //     //     .style("opacity", 1);
+    // })
+    //     .on("mouseout", function(d) {
+    //         countryTooltip.style("opacity", 0)
+    //             .style("display", "none");
+    //     })
+    //     .on("mousemove", function(d) {
+    //         countryTooltip.style("left", (d3.event.pageX + 7) + "px")
+    //             .style("top", (d3.event.pageY - 15) + "px");
+    //     });
 
 
 
