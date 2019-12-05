@@ -11,7 +11,7 @@ MethaneVis = function(_parentElement, _data) {
     this.filteredData = this.data;
 
     this.initVis();
-}
+};
 
 
 /*
@@ -76,7 +76,7 @@ MethaneVis.prototype.initVis = function(){
         .attr('class', 'item-tooltip');
 
     vis.wrangleData();
-}
+};
 
 
 

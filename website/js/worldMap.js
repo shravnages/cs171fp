@@ -1,0 +1,212 @@
+/*
+ * WorldVis - Object constructor function
+ * @param _parentElement 	-- the HTML element in which to draw the visualization
+ * @param _data						-- the actual data
+ */
+
+
+var colorMap;
+
+var colorScale = d3.scaleSequential(d3.interpolateInferno);
+
+
+
+
+WorldVis = function(_parentElement, _data, _mapData) {
+    this.parentElement = _parentElement;
+    this.data = _data;
+    this.mapData = _mapData;
+    this.filteredData = this.data;
+
+    this.initVis();
+};
+
+
+
+WorldVis.prototype.initVis = function(){
+    var vis = this;
+
+
+    vis.margin = { top: 40, right: 0, bottom: 60, left: 60 };
+
+    vis.width = 800 - vis.margin.left - vis.margin.right,
+        vis.height = 400 - vis.margin.top - vis.margin.bottom;
+
+    // SVG drawing area
+    vis.svg = d3.select("#" + vis.parentElement).append("svg")
+        .attr("width", vis.width + vis.margin.left + vis.margin.right)
+        .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")");
+
+    vis.state = {
+        x: 0,
+        y: 0,
+        scale: vis.height / 2
+    };
+
+
+    vis.projection = d3.geoOrthographic()
+        .scale(vis.state.scale)
+        .clipAngle(90)
+        .translate([vis.width / 2, vis.height / 2]);
+
+
+
+
+    //Define path generator, using the Albers USA projection
+    vis.path = d3.geoPath()
+        .projection(vis.projection);
+
+    //vis.createVisualization(d3.json("data/world.json"), worldDict);
+
+    vis.createVisualization();
+
+    //vis.wrangleData();
+};
+
+
+//WorldVis.prototype.createVisualization = function(error, data1, data2){
+
+WorldVis.prototype.createVisualization = function(){
+    // Visualize data1 and data2
+
+    var vis = this;
+
+    console.log(vis.data);
+
+    console.log(vis.mapData);
+
+    console.log(vis.filteredData);
+
+
+
+
+
+
+    // Convert TopoJSON to GeoJSON (target object = 'states')
+    var worldTopo = topojson.feature(mapData, mapData.objects.countries).features;
+
+
+    console.log(worldTopo);
+
+
+
+    // Render the world by using the path generator
+    myMap = vis.svg.selectAll("path")
+        .data(worldTopo)
+        .enter().append("path")
+        .attr("d", vis.path)
+        .attr("fill", function(d){
+            //console.log(d.properties.name);
+            var countryName = d.properties.name;
+            //console.log(console.log(vis.filteredData[countryName]));
+
+            if (vis.filteredData[countryName] != undefined){
+
+
+
+                var rangeArray = d3.extent(Object.values(vis.filteredData));
+                var range = rangeArray[1] - rangeArray[0];
+                var incr = range/5;
+
+                console.log(rangeArray);
+
+                console.log(rangeArray[0], 2*(rangeArray[0]));
+
+                //console.log(rangeArray)
+
+                //colorScale.domain([ (rangeArray[0]), (rangeArray[0] + incr), (rangeArray[0] + (2*incr)), (rangeArray[0] + (3*incr)), (rangeArray[0] + (4*incr)), (rangeArray[0] + (5*incr))]);
+
+                colorScale.domain(rangeArray);
+
+                console.log(vis.filteredData[countryName]);
+
+                console.log( colorScale(vis.filteredData[countryName]));
+
+
+                return colorScale(vis.filteredData[countryName]);
+            }
+
+
+        });
+
+    var v0, // Mouse position in Cartesian coordinates at start of drag gesture.
+        r0, // Projection rotation as Euler angles at start.
+        q0; // Projection rotation as versor at start.
+
+
+    var drag = d3.drag()
+        .on("start", dragstarted)
+        .on("drag", dragged)
+        .on("end", dragended);
+
+    vis.svg.call(drag);
+
+    function dragstarted(){
+
+        var mouse_pos = d3.mouse(this);
+
+        v0 = versor.cartesian(vis.projection.invert(mouse_pos));
+        r0 = vis.projection.rotate();
+        q0 = versor(r0);
+
+        vis.svg.insert("path")
+            .datum({type: "Point", coordinates: vis.projection.invert(mouse_pos)})
+            .attr("class", "point point-mouse")
+            .attr("d", vis.path);
+
+    }
+
+    function dragged(){
+
+        var mouse_pos = d3.mouse(this);
+
+        var v1 = versor.cartesian(vis.projection.rotate(r0).invert(mouse_pos)),
+            q1 = versor.multiply(q0, versor.delta(v0, v1)),
+            r1 = versor.rotation(q1);
+
+        if (r1){
+            update(r1);
+
+            vis.svg.selectAll("path").attr("d", vis.path);
+
+            vis.svg.selectAll(".point-mouse")
+                .datum({type: "Point", coordinates: vis.projection.invert(mouse_pos)});
+        }
+
+    }
+
+    function dragended(){
+        vis.svg.selectAll(".point").remove();
+    }
+
+    d3.selectAll("input").on("input", function(){
+        // get all values
+        var nums = [];
+        d3.selectAll("input").each(function(d, i){
+            nums.push(+d3.select(this).property("value"));
+        });
+        update(nums);
+
+        vis.svg.selectAll("path").attr("d", path);
+
+    });
+
+    function update(eulerAngles){
+        // angles.forEach(function(angle, index){
+        //     d3.select(".angle-label-" + index + " span").html(Math.round(eulerAngles[index]))
+        //     d3.select(".angle-" + index).property("value", eulerAngles[index])
+        // });
+
+        vis.projection.rotate(eulerAngles);
+    }
+
+
+
+
+
+
+
+
+};
