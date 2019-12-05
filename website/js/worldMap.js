@@ -133,9 +133,10 @@ WorldVis.prototype.createVisualization = function(){
                 return colorScale(vis.filteredData[countryName]);
             }})
             .on("mouseover", function(d) {
-                console.log(d.properties)
+                console.log(d)
                 console.log(d.properties.name);
-                countryTooltip.text(d.properties.name)
+                countryTooltip.text(d.properties.name +  ": "  + vis.filteredData[d.properties.name])
+                    //.text(vis.filteredData[d.properties.name])
                     .style("left", (d3.event.pageX + 7) + "px")
                     .style("top", (d3.event.pageY - 15) + "px")
                     .style("display", "block")
