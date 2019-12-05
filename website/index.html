@@ -1,44 +1,252 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Meat Your Worst Nightmare</title>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Meat Your Worst Nightmare</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/hero-slider.css">
+        <link rel="stylesheet" href="css/templatemo-main.css">
+        <link rel="stylesheet" href="css/owl-carousel.css">
 
-	<link href='https://fonts.googleapis.com/css?family=Lato:400,300,400italic,700' rel='stylesheet' type='text/css'>
-</head>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Roboto:100,400,300,400italic,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/fontawesome.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/style_bar.css">
+
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    </head>
+<!--
+-->
 <body>
 
-	<div class="container">
+    <div class="fixed-side-navbar">
+        <ul class="nav flex-column">
+            <li class="nav-item"><a class="nav-link" href="#home"><span>Home</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="#part1"><span>Introduction</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="#part2"><span>Emissions</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="#part3"><span>Comparison</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="#part4"><span>Recommendations</span></a></li>
+        </ul>
+    </div>
 
-		<h1>Greenhouse Gases For Each Meat</h1>
-		<h2></h2>
-		
-		<!-- Parent container for the visualization -->
-		<div class="container">
-			<div id="row">
-				<div class="col" id="methane-vis"></div>
-				<div class="col" id="compare-chart"></div>
-			</div>
-		</div>
-		<button onclick="reset()">Reset</button>
+    <div class="parallax-content baner-content" id="home">
+        <div class="container0">
+            <div class="first-content">
+                <h1>"Meat" Your<br>Worst<br> Nightmare</h1>
+            </div>
+        </div>
+    </div>
 
-	</div>
+    <div class="content-part1" id="part1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="left-text">
+                        <h4>Global Meat Production</h4>
+                        <div class="line-dec"></div>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                            non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                        <div class="primary-button">
+                            <a href="#portfolio">Click on USA for more information</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div id="chart-map">choropleth map</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-part2 message">
+        <h2 class="rw-sentence">
+            <span>When you eat meat, our</span>
+            <div class="rw-words rw-words-1">
+                <span>oceans</span>
+                <span>forests</span>
+                <span>skies</span>
+                <span>cities</span>
+                <span>glaciers</span>
+                <span>planet</span>
+            </div>
+            <span> _________ can feel it, too.</span>
+        </h2>
+        <div class="container" id="text-info">
+            <div class="row align-items-center">
+                <p style="text-align: center">Hi, it's not just your health, it's the planet's health!!</p>
+            </div>
+            <div class="row align-items-center">
+                <div id="learn-more-button" align="center"><a class="example_f" href="#part2"><span>Learn More</a></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-part2" id="part2">
+        <div class="container">
+            <div class="row" id="row1">
+                <div class="col-md-8" id="methane-vis">
+                    <div class="em-head">
+                        <span class="letter" data-letter="E">E</span>
+                        <span class="letter" data-letter="M">M</span>
+                        <span class="letter" data-letter="I">I</span>
+                        <span class="letter" data-letter="S">S</span>
+                        <span class="letter" data-letter="S">S</span>
+                        <span class="letter" data-letter="I">I</span>
+                        <span class="letter" data-letter="O">O</span>
+                        <span class="letter" data-letter="N">N</span>
+                        <span class="letter" data-letter="S">S</span>
+                    </div>
+                    <h6 style="font-size:15px">Methane Emissions per unit of food</h6>
+                </div>
+                <div class="col-md-3">
+                    <div id="compare-chart">Click on a category of food to see its breakdown into specific items.<br>
+                    For each item, see how it compares to the three biggest wasters: beef, dairy, and lamb.</div>
+                    <div id="reset-button" align="center"><a class="example_f" onclick="reset()" target="_blank" rel="nofollow"><span>RESET</a></div>
+                    <p></p>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
-	<!-- Load JS libraries: jQuery, bootstrap, D3 -->
-	<script src="js/jquery.min.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/d3.min.js"></script>
+    <div class="content-part3" id="part3">
+        <div class="container-fluid">
+            <h1>Emission Breakdown</h1>
+            <br><br>
+            <div class="row">
+                <div class="col-md-2" >
+                    <br><br>
+                    <br><br>
+                    <div id="axis"></div>
+                </div>
+                <div class="col-md-3" >
+                    <div class="cat1 cat">Meat</div>
+                    <div class="dropdown1 dropdown"></div>
+                    <br><br>
+                    <div id="chart-area1" style="background-color: #efedf5"></div>
+                </div>
+                <div class="col-md-3" >
+                    <div class="cat2 cat">Grain</div>
+                    <div class="dropdown2 dropdown"></div>
+                    <br><br>
+                    <div id="chart-area2" style="background-color: #efedf5"></div>
+                </div>
+                <div class="col-md-3" >
+                    <div class="cat3 cat">Vegetables&Fruits</div>
+                    <div class="dropdown3 dropdown"></div>
+                    <br><br>
+                    <div id="chart-area3" style="background-color: #efedf5"></div>
+                </div>
+            </div>
+            <p id="xAxis-label" style="padding-left: 1050px" >GHG Emissions(kg CO2 eq)</p>
+        </div>
+    </div>
 
-	<!-- Your implementation -->
-	<script src="js/main.js"></script>
-	<script src="js/methanetree.js"></script>
+
+
+    <div class="content-part4" id="part4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+
+                </div>
+                <div class="col-md-6">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="primary-button">
+                        <a href="#home">Back To Top</a>
+                    </div>
+                    <ul>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google"></i></a></li>
+                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                    </ul>
+                    <p>Copyright &copy; 2019 Company Name 
+            
+            		- Design: <a rel="nofollow noopener" href="https://templatemo.com"><em>TemplateMo</em></a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+    <script src="https://d3js.org/d3-color.v1.min.js"></script>
+    <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/d3.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main-html.js"></script>
+    <script src="js/main_bar.js"></script>
+    <script src="js/MethaneTree.js"></script>
+    <script src="js/BarChart.js"></script>
+
+
+    <script>
+        function openCity(cityName) {
+            var i;
+            var x = document.getElementsByClassName("city");
+            for (i = 0; i < x.length; i++) {
+               x[i].style.display = "none";
+            }
+            document.getElementById(cityName).style.display = "block";
+        }
+    </script>
+
+    <script>
+        $(document).ready(function(){
+          // Add smooth scrolling to all links
+          $(".fixed-side-navbar a, .primary-button a").on('click', function(event) {
+
+            // Make sure this.hash has a value before overriding default behavior
+            if (this.hash !== "") {
+              // Prevent default anchor click behavior
+              event.preventDefault();
+
+              // Store hash
+              var hash = this.hash;
+
+              // Using jQuery's animate() method to add smooth page scroll
+              // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+              $('html, body').animate({
+                scrollTop: $(hash).offset().top
+              }, 800, function(){
+
+                // Add hash (#) to URL when done scrolling (default click behavior)
+                window.location.hash = hash;
+              });
+            } // End if
+          });
+        });
+    </script>
 
 </body>
 </html>
