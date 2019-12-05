@@ -11,7 +11,7 @@ PieChart = function(_parentElement, _data){
 PieChart.prototype.initVis = function(){
     var vis = this;
 
-    vis.margin = { top: 40, right: 5, bottom: 20, left: 20 };
+    vis.margin = { top: 40, right: 5, bottom: 30, left: 20 };
 
     vis.width = 500 - vis.margin.left - vis.margin.right,
     vis.height = 500 - vis.margin.top - vis.margin.bottom;
@@ -112,6 +112,8 @@ PieChart.prototype.initVis = function(){
 
         $("#dropdown").multiselect('refresh');
         d3.select(".bubble-svg").remove()
+        d3.select(".total-emission")
+            .remove();
         vis.wrangleData()
     }
 
@@ -161,7 +163,11 @@ PieChart.prototype.wrangleData = function(){
     for(var i=0;i<selectedValue.length;i++){
         vis.displayData.push(vis.data.filter(d=>d.Product==selectedValue[i])[0])
     }
-    //console.log(vis.displayData)
+    var total_emission=vis.displayData.map(d=>d.Total)
+    vis.sum=total_emission.reduce( (sum, current) => sum + current, 0 ).toFixed(1)
+    vis.sum_food=vis.displayData.length;
+    // console.log(total_emission)
+    // console.log(vis.sum)
     vis.updateVis();
 }
 
@@ -171,7 +177,6 @@ PieChart.prototype.updateVis = function(){
     d3.select("#instruction").remove()
 
     vis.pie = d3.pie()
-    console.log(vis.pie(vis.displayData.map(d=>d.Total)))
 
     // Generate the arcs
     var arc = d3.arc()
@@ -205,13 +210,46 @@ PieChart.prototype.updateVis = function(){
 
     arcs.exit().remove();
 
+
     if(vis.displayData.length!=0){
+        d3.select("#weight")
+            .remove();
+        vis.pie_group
+            .append("text")
+            .attr("x",-120)
+            .attr("y",vis.height-185)
+            .text("Total weight of food picked: "+vis.sum_food+" kg")
+            .attr("id","weight")
+
         vis.pie_group
             .append("text")
             .attr("x",-190)
-            .attr("y",vis.height-180)
+            .attr("y",vis.height-165)
             .text("Hover over the pie chart to see emission breakdowns!")
             .attr("id","instruction")
+
+        d3.select(".total-emission")
+            .remove();
+        var text=vis.pie_group.append("text")
+            .attr("x",-50)
+            .attr("y",-15)
+            .attr("class","total-emission");
+
+        text.append("tspan")
+            .attr("x",-50)
+            .attr("dy",10)
+            .text("Toal Emission: ")
+
+        text.append("tspan")
+            .attr("x",-50)
+            .attr("dy",20)
+            .text(vis.sum+"(kg CO2 eq)")
+    }
+    else{
+        d3.select(".total-emission")
+            .remove();
+        d3.select("#weight")
+            .remove();
     }
 
 }
