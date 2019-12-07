@@ -15,7 +15,7 @@ PieChart.prototype.initVis = function(){
 
     vis.width = 500 - vis.margin.left - vis.margin.right,
     vis.height = 500 - vis.margin.top - vis.margin.bottom;
-    vis.radius= Math.min(vis.width, vis.height) / 3,
+    vis.radius= Math.min(vis.width, vis.height) / 2,
 
     vis.width1 = 600 - vis.margin.left - vis.margin.right,
     vis.height1 = 50 - vis.margin.top - vis.margin.bottom;
@@ -70,7 +70,7 @@ PieChart.prototype.initVis = function(){
     //jquery multiselect dropdown menu
     vis.dropdown=$('#dropdown').multiselect({
         columns:2,
-        placeholder:"Select what you eat today(maximum 10 items)...",
+        placeholder:"What did you eat today?",
         maxHeight: 500,
         buttonWidth: '150px',
         dropUp: true,
@@ -111,8 +111,8 @@ PieChart.prototype.initVis = function(){
         $(":button span").text("What did you eat today?").prop("color","#e9e9e9")
 
         $("#dropdown").multiselect('refresh');
-        d3.select(".bubble-svg").remove()
-        vis.wrangleData()
+        d3.select(".bubble-svg").remove();
+        vis.wrangleData();
     }
 
     //Get display data for piechart

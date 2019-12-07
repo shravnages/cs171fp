@@ -17,8 +17,9 @@
         <link href='https://fonts.googleapis.com/css?family=Roboto:100,400,300,400italic,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/fontawesome.min.css">
+        <link rel="stylesheet" href="css/jquery.multiselect.css">
         <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/style_bar.css">
+        <link rel="stylesheet" href="css/style_pie.css">
 
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
@@ -127,31 +128,37 @@
             <h1>Emission Breakdown</h1>
             <br><br>
             <div class="row">
-                <div class="col-md-2" >
-                    <br><br>
-                    <br><br>
-                    <div id="axis"></div>
+                <div class="col-md-3" style="height:800px;">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <select multiple id='dropdown'>
+
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <button id="btn">Reset</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-3" >
-                    <div class="cat1 cat">Meat</div>
-                    <div class="dropdown1 dropdown"></div>
-                    <br><br>
-                    <div id="chart-area1" style="background-color: #efedf5"></div>
+
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <object type="image/svg+xml" data="svg/food-01.svg" id="fork"></object>
+                        </div>
+                        <div class="col-md-6">
+                            <div id="chart-area1"></div>
+                        </div>
+                        <div class="col-md-1 offset-4">
+                            <object type="image/svg+xml" data="svg/food-02.svg" id="knife"></object>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-3" >
-                    <div class="cat2 cat">Grain</div>
-                    <div class="dropdown2 dropdown"></div>
-                    <br><br>
-                    <div id="chart-area2" style="background-color: #efedf5"></div>
-                </div>
-                <div class="col-md-3" >
-                    <div class="cat3 cat">Vegetables&Fruits</div>
-                    <div class="dropdown3 dropdown"></div>
-                    <br><br>
-                    <div id="chart-area3" style="background-color: #efedf5"></div>
+                <div class="col-md-3"  style="background-color: rgba(240,248,255,0.49); height: 500px; border-radius: 5px;">
+                    <div id="Text"></div>
+                    <div id="tooltip"></div>
                 </div>
             </div>
-            <p id="xAxis-label" style="padding-left: 1050px" >GHG Emissions(kg CO2 eq)</p>
         </div>
     </div>
 
@@ -202,12 +209,20 @@
     <script src="js/vendor/bootstrap.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/d3.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.multiselect.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main-html.js"></script>
     <script src="js/main_bar.js"></script>
     <script src="js/MethaneTree.js"></script>
-    <script src="js/BarChart.js"></script>
+    <script src="js/BubbleChart.js"></script>
+    <script src="js/PieChart.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/sankey.js"></script>
+    <script src="js/sankey.js"></script>
+    <link rel="stylesheet" href="css/style_flow.css">
+
 
 
     <script>
