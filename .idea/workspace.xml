@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="949a3ab5-ba10-4a47-a65f-f7d87042b568" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/website/css/jquery.multiselect.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/js/jquery.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piechart/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/piechart/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/piechart/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piechart/js/PieChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/piechart/js/PieChart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piechart/svg/food-01.svg" beforeDir="false" afterPath="$PROJECT_DIR$/website/svg/food-01.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piechart/svg/food-02.svg" beforeDir="false" afterPath="$PROJECT_DIR$/website/svg/food-02.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piechart/viz.html" beforeDir="false" afterPath="$PROJECT_DIR$/piechart/viz.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/website/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/js/main_bar.js" beforeDir="false" afterPath="$PROJECT_DIR$/website/js/main_bar.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
