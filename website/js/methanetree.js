@@ -182,3 +182,88 @@ MethaneTree.prototype.reset = function(){
 
     vis.wrangleData("begin");
 }
+
+// MethaneTree.prototype.updateBar = function(subLevel){
+//     var vis = this;
+//
+//     vis.barData = vis.data.filter(function(d) {
+//         return (d.Product === "Bovine Meat (beef herd)" || d.Product === "Bovine Meat (dairy herd)" || d.Product === subLevel);
+//     });
+//
+//     var x0 = d3.scaleBand()
+//         .rangeRound([0, vis.width])
+//         .paddingInner(0.1);
+//     var x1 = d3.scaleBand()
+//         .padding(0.05);
+//     var y = d3.scaleLinear()
+//         .rangeRound([vis.height, 0]);
+//     var z = d3.scaleOrdinal()
+//         .range(["#98abc5", "#8a89a6", "#6b486b", "#a05d56", "#d0743c"]);
+//
+//     var keys = ["Farm", "Feed", "Processing", "Retail", "Transport"];
+//
+//     x0.domain(vis.barData.map(function(d) { return d.Product; }));
+//     x1.domain(keys).rangeRound([0, x0.bandwidth()]);
+//     y.domain([0, d3.max(vis.barData, function(d) { return d3.max(keys, function(key) { return d[key]; }); })]).nice();
+//
+//     var bars = vis.barg.append("g")
+//         .selectAll("g")
+//         .data(data);
+//
+//     bars.enter().append("g")
+//         .attr("transform", function(d) { return "translate(" + x0(d.Product) + ",0)"; })
+//         .selectAll("rect")
+//         .data(function(d) { return keys.map(function(key) { return {key: key, value: d[key]}; }); })
+//         .enter().append("rect")
+//         .merge(bars)
+//         .transition()
+//         .duration(800)
+//         .attr("x", function(d) { return x1(d.key); })
+//         .attr("y", function(d) { return y(d.value); })
+//         .attr("width", x1.bandwidth())
+//         .attr("height", function(d) { return vis.height - y(d.value); })
+//         .attr("fill", function(d) { return z(d.key); });
+//
+//     bars.exit().remove();
+//
+//     vis.barg.append("g")
+//         .attr("class", "axis")
+//         .attr("transform", "translate(0," + vis.height + ")")
+//         .call(d3.axisBottom(x0));
+//     vis.barg.append("g")
+//         .attr("class", "axis")
+//         .call(d3.axisLeft(y).ticks(null, "s"))
+//         .append("text")
+//         .attr("x", 2)
+//         .attr("y", y(y.ticks().pop()) + 0.5)
+//         .attr("dy", "0.32em")
+//         .attr("fill", "#000")
+//         .attr("font-weight", "bold")
+//         .attr("text-anchor", "start")
+//         .text("Emissions");
+//
+//     var legend = vis.barg.append("g")
+//         .attr("font-family", "sans-serif")
+//         .attr("font-size", 10)
+//         .attr("text-anchor", "end")
+//         .selectAll("g")
+//         .data(keys.slice().reverse())
+//         .enter().append("g")
+//         .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+//
+//     legend.append("rect")
+//         .merge(legend)
+//         .attr("x", vis.width - 19)
+//         .attr("width", 19)
+//         .attr("height", 19)
+//         .attr("fill", z);
+//     legend.append("text")
+//         .transition()
+//         .duration(800)
+//         .attr("x", vis.width - 24)
+//         .attr("y", 9.5)
+//         .attr("dy", "0.32em")
+//         .text(function(d) { return d; });
+//
+//     legend.exit().remove();
+// }
