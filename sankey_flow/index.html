@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Efficiency flow</title>
+
+    <!-- Load Google Font -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100,400,300,400italic,700' rel='stylesheet' type='text/css'>
+
+    <!-- CSS libraries -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+
+    <!-- Custom CSS code -->
+    <link rel="stylesheet" href="css/style_flow.css">
+</head>
+
+
+
+<body>
+
+
+<div class="container">
+    <div class='row'>
+        <div class="col-sm-2">
+
+            <br><br><br><br>
+            <p class="annotation">
+              CONCENTRATES:<br>
+                Corn<br>
+                Soybean<br>
+                Other crops<br>
+                Byproducts
+            </p>
+            <br><br>
+            <p class="annotation">
+                PROCESSED ROUGHHAGE:<br>
+                Hay<br>
+                Grass silage<br>
+                Greenchop<br>
+                Sorghum silage
+            </p>
+        </div>
+
+        <div class="col-sm-8">
+            <div class="chart"></div>
+            <br>
+            <br>
+            <p>
+                The US feed-to-food protein flux from the three feed classes (left) into edible animal products (right).
+                On the right, parenthetical percentages are the food-protein-out/feed-protein-in conversion efficiencies of
+                individual livestock categories. Protein values are in Mt (109 kg).
+            </p>
+
+        </div>
+
+
+        <div class="col-sm-2">
+            <br><br><br><br><br><br>
+            <p class="annotation">
+                CONVERSION EFFICIENCY:<br>
+                Beef: 3 %<br>
+                Pork: 9 %<br>
+                Poultry: 21 %<br>
+                Eggs : 31 %<br>
+                Dairy: 14 %<br>
+
+            </p>
+
+        </div>
+    </div>
+
+
+
+</div>
+
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<!-- Load the sankey.js function -->
+<script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/sankey.js"></script>
+
+
+<script src="js/sankey.js"></script>
+
+<link rel="stylesheet" href="css/style_flow.css">
+</body>

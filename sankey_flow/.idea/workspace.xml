@@ -1,42 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="949a3ab5-ba10-4a47-a65f-f7d87042b568" name="Default Changelist" comment="" />
-=======
-    <list default="true" id="949a3ab5-ba10-4a47-a65f-f7d87042b568" name="Default Changelist" comment="">
+    <list default="true" id="e3534c5e-62d7-4122-8178-8599ccd6019e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style_flow.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sankey2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/sankey2.csv" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
->>>>>>> 167c1bf400b1f3f60dcfbb4ff9548298cdc4e122
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-<<<<<<< HEAD
-=======
-  <component name="ProjectId" id="1TfQfDdWJQ3TEbNZIdPLfMJVR0x" />
+  <component name="ProjectId" id="1TtywKU3S91pw3Mgr3L21G5Y3Mc" />
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/piechart/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/piechart/js" />
-      <recent name="$PROJECT_DIR$/piechart/css" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/website/js" />
-      <recent name="$PROJECT_DIR$/website/css" />
-      <recent name="$PROJECT_DIR$/website" />
+      <recent name="$PROJECT_DIR$/css" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/js" />
+      <recent name="$PROJECT_DIR$/backupfile" />
+      <recent name="$PROJECT_DIR$/JS" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
->>>>>>> 167c1bf400b1f3f60dcfbb4ff9548298cdc4e122
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -53,19 +60,18 @@
     <configuration />
   </component>
   <component name="TaskManager">
-<<<<<<< HEAD
-    <servers />
-  </component>
-=======
     <task active="true" id="Default" summary="Default task">
-      <changelist id="949a3ab5-ba10-4a47-a65f-f7d87042b568" name="Default Changelist" comment="" />
-      <created>1573848771065</created>
+      <changelist id="e3534c5e-62d7-4122-8178-8599ccd6019e" name="Default Changelist" comment="" />
+      <created>1574293924104</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1573848771065</updated>
-      <workItem from="1573848772781" duration="2364000" />
-      <workItem from="1575561715925" duration="3491000" />
-      <workItem from="1575648781230" duration="205000" />
+      <updated>1574293924104</updated>
+      <workItem from="1574293926269" duration="3119000" />
+      <workItem from="1574434452229" duration="3199000" />
+      <workItem from="1574693140580" duration="4788000" />
+      <workItem from="1574712361195" duration="534000" />
+      <workItem from="1575318737690" duration="1604000" />
+      <workItem from="1575520991970" duration="1704000" />
     </task>
     <servers />
   </component>
@@ -85,5 +91,4 @@
       </map>
     </option>
   </component>
->>>>>>> 167c1bf400b1f3f60dcfbb4ff9548298cdc4e122
 </project>

@@ -3,6 +3,7 @@
 var allData = [];
 
 
+<<<<<<< HEAD
 d3.json("data/allFoods.json", function(error, jsonData){
         if(!error){
             allData = jsonData;
@@ -37,6 +38,13 @@ d3.json("data/allFoods.json", function(error, jsonData){
 
 
         }
+=======
+d3.json("data/allFoods1.json", function(error, jsonData){
+    if(!error){
+        allData = jsonData;
+        var pie=new PieChart("chart-area1",allData);
+    }
+>>>>>>> 167c1bf400b1f3f60dcfbb4ff9548298cdc4e122
 });
 
 
