@@ -47,8 +47,14 @@ MethaneTree.prototype.initVis = function(){
 
     vis.margin = { top: 0, right: 0, bottom: 60, left: 0 };
 
-    vis.width = 650 - vis.margin.left - vis.margin.right,
-        vis.height = 650 - vis.margin.top - vis.margin.bottom;
+    var element = document.getElementById(vis.parentElement);
+    var positionInfo = element.getBoundingClientRect();
+    var width = positionInfo.right;
+
+    console.log(positionInfo);
+
+    vis.width = width/1.5 - vis.margin.left - vis.margin.right,
+        vis.height = 600 - vis.margin.top - vis.margin.bottom;
 
     // SVG drawing area
     vis.svg = d3.select("#" + vis.parentElement).append("svg")
@@ -120,6 +126,9 @@ MethaneTree.prototype.updateVis = function(){
         .padding(4)
         (root);
 
+    var max_em = d3.max(root.leaves().map(function(d) { return d.data.Total }));
+    console.log(max_em);
+
     var rects = vis.svg.selectAll("rect").data(root.leaves());
 
     rects.enter()
@@ -130,7 +139,7 @@ MethaneTree.prototype.updateVis = function(){
         .attr('width', function (d) { return d.x1 - d.x0; })
         .attr('height', function (d) { return d.y1 - d.y0; })
         .style("stroke", "black")
-        .style("fill", "#69b3a2")
+        .style("fill", function(d, i) { return d3.interpolateGnBu((d.data.Total/1.5)/max_em); })
         .on("click", function(d) {
             if (vis.clickable) {
                 vis.wrangleData(d.data.name);
@@ -163,7 +172,7 @@ MethaneTree.prototype.updateVis = function(){
             return d.data.name;
         }})
         .attr("font-size", "15px")
-        .attr("fill", "white");
+        .attr("fill", "#86592d");
 
     texts.exit().remove();
 }
@@ -172,13 +181,11 @@ MethaneTree.prototype.updateVis = function(){
 MethaneTree.prototype.reset = function(){
     var vis = this;
 
-
-    // Filter original unfiltered data depending on selected time period (brush)
-
-    // *** TO-DO ***
-    //vis.filteredData = vis.data.filter(function(d){
-    // ...
     vis.clickable = true;
+
+    document.getElementById("compare-chart").innerHTML  =
+        "Click on a category of food to see its breakdown into specific items.<br>\n" +
+        "For each item, see how it compares to the three biggest wasters: beef, dairy, and lamb."
 
     vis.wrangleData("begin");
 }
