@@ -47,14 +47,8 @@ MethaneTree.prototype.initVis = function(){
 
     vis.margin = { top: 0, right: 0, bottom: 60, left: 0 };
 
-    var element = document.getElementById(vis.parentElement);
-    var positionInfo = element.getBoundingClientRect();
-    var width = positionInfo.right;
-
-    console.log(positionInfo);
-
-    vis.width = width/1.5 - vis.margin.left - vis.margin.right,
-        vis.height = 600 - vis.margin.top - vis.margin.bottom;
+    vis.width = 650 - vis.margin.left - vis.margin.right,
+        vis.height = 650 - vis.margin.top - vis.margin.bottom;
 
     // SVG drawing area
     vis.svg = d3.select("#" + vis.parentElement).append("svg")
@@ -126,9 +120,6 @@ MethaneTree.prototype.updateVis = function(){
         .padding(4)
         (root);
 
-    var max_em = d3.max(root.leaves().map(function(d) { return d.data.Total }));
-    console.log(max_em);
-
     var rects = vis.svg.selectAll("rect").data(root.leaves());
 
     rects.enter()
@@ -139,7 +130,7 @@ MethaneTree.prototype.updateVis = function(){
         .attr('width', function (d) { return d.x1 - d.x0; })
         .attr('height', function (d) { return d.y1 - d.y0; })
         .style("stroke", "black")
-        .style("fill", function(d, i) { return d3.interpolateGnBu((d.data.Total/1.5)/max_em); })
+        .style("fill", "#69b3a2")
         .on("click", function(d) {
             if (vis.clickable) {
                 vis.wrangleData(d.data.name);
@@ -172,7 +163,7 @@ MethaneTree.prototype.updateVis = function(){
             return d.data.name;
         }})
         .attr("font-size", "15px")
-        .attr("fill", "#86592d");
+        .attr("fill", "white");
 
     texts.exit().remove();
 }
@@ -181,96 +172,13 @@ MethaneTree.prototype.updateVis = function(){
 MethaneTree.prototype.reset = function(){
     var vis = this;
 
-    vis.clickable = true;
 
-    document.getElementById("compare-chart").innerHTML  =
-        "Click on a category of food to see its breakdown into specific items.<br>\n" +
-        "For each item, see how it compares to the three biggest wasters: beef, dairy, and lamb."
+    // Filter original unfiltered data depending on selected time period (brush)
+
+    // *** TO-DO ***
+    //vis.filteredData = vis.data.filter(function(d){
+    // ...
+    vis.clickable = true;
 
     vis.wrangleData("begin");
 }
-
-// MethaneTree.prototype.updateBar = function(subLevel){
-//     var vis = this;
-//
-//     vis.barData = vis.data.filter(function(d) {
-//         return (d.Product === "Bovine Meat (beef herd)" || d.Product === "Bovine Meat (dairy herd)" || d.Product === subLevel);
-//     });
-//
-//     var x0 = d3.scaleBand()
-//         .rangeRound([0, vis.width])
-//         .paddingInner(0.1);
-//     var x1 = d3.scaleBand()
-//         .padding(0.05);
-//     var y = d3.scaleLinear()
-//         .rangeRound([vis.height, 0]);
-//     var z = d3.scaleOrdinal()
-//         .range(["#98abc5", "#8a89a6", "#6b486b", "#a05d56", "#d0743c"]);
-//
-//     var keys = ["Farm", "Feed", "Processing", "Retail", "Transport"];
-//
-//     x0.domain(vis.barData.map(function(d) { return d.Product; }));
-//     x1.domain(keys).rangeRound([0, x0.bandwidth()]);
-//     y.domain([0, d3.max(vis.barData, function(d) { return d3.max(keys, function(key) { return d[key]; }); })]).nice();
-//
-//     var bars = vis.barg.append("g")
-//         .selectAll("g")
-//         .data(data);
-//
-//     bars.enter().append("g")
-//         .attr("transform", function(d) { return "translate(" + x0(d.Product) + ",0)"; })
-//         .selectAll("rect")
-//         .data(function(d) { return keys.map(function(key) { return {key: key, value: d[key]}; }); })
-//         .enter().append("rect")
-//         .merge(bars)
-//         .transition()
-//         .duration(800)
-//         .attr("x", function(d) { return x1(d.key); })
-//         .attr("y", function(d) { return y(d.value); })
-//         .attr("width", x1.bandwidth())
-//         .attr("height", function(d) { return vis.height - y(d.value); })
-//         .attr("fill", function(d) { return z(d.key); });
-//
-//     bars.exit().remove();
-//
-//     vis.barg.append("g")
-//         .attr("class", "axis")
-//         .attr("transform", "translate(0," + vis.height + ")")
-//         .call(d3.axisBottom(x0));
-//     vis.barg.append("g")
-//         .attr("class", "axis")
-//         .call(d3.axisLeft(y).ticks(null, "s"))
-//         .append("text")
-//         .attr("x", 2)
-//         .attr("y", y(y.ticks().pop()) + 0.5)
-//         .attr("dy", "0.32em")
-//         .attr("fill", "#000")
-//         .attr("font-weight", "bold")
-//         .attr("text-anchor", "start")
-//         .text("Emissions");
-//
-//     var legend = vis.barg.append("g")
-//         .attr("font-family", "sans-serif")
-//         .attr("font-size", 10)
-//         .attr("text-anchor", "end")
-//         .selectAll("g")
-//         .data(keys.slice().reverse())
-//         .enter().append("g")
-//         .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
-//
-//     legend.append("rect")
-//         .merge(legend)
-//         .attr("x", vis.width - 19)
-//         .attr("width", 19)
-//         .attr("height", 19)
-//         .attr("fill", z);
-//     legend.append("text")
-//         .transition()
-//         .duration(800)
-//         .attr("x", vis.width - 24)
-//         .attr("y", 9.5)
-//         .attr("dy", "0.32em")
-//         .text(function(d) { return d; });
-//
-//     legend.exit().remove();
-// }
