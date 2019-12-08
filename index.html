@@ -20,6 +20,7 @@
         <link rel="stylesheet" href="css/jquery.multiselect.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/style_pie.css">
+        <link rel="stylesheet" href="css/style_map.css">
 
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
@@ -65,7 +66,7 @@
                     </div>
                 </div>
                 <div class="col-md-8">
-                    <div id="chart-map">choropleth map</div>
+                    <div id="world-vis"></div>
                 </div>
             </div>
         </div>
@@ -97,7 +98,7 @@
     <div class="content-part2" id="part2">
         <div class="container">
             <div class="row" id="row1">
-                <div class="col-md-8" id="methane-vis">
+                <div class="col-md-8" id="methane-vis" style="width: 800px;">
                     <div class="em-head">
                         <span class="letter" data-letter="E">E</span>
                         <span class="letter" data-letter="M">M</span>
@@ -267,6 +268,8 @@
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/sankey.js"></script>
     <script src="js/sankey.js"></script>
+    <script src="js/main-world.js"></script>
+    <script src="js/worldMap.js"></script>
     <link rel="stylesheet" href="css/style_flow.css">
 
 
