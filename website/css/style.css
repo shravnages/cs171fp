@@ -9,6 +9,21 @@ html {
 
 #compare-chart {
     padding-top: 150px;
+    font-size: 12pt;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+}
+
+
+#compare-area {
+   background: rgba(255,255,255,0.5);
+   max-height: 580px;
+    transform: translate(0,60px);
+}
+
+h6.chart-title{
+    font-size: 20pt;
 }
 
 .example_f {
@@ -51,16 +66,15 @@ html {
     padding-top: 100px;
 }
 
-h4 {
-
-}
 
 .message {
     background-color: black;
-    opacity: 0.6;
+    opacity: 0.8;
     background-image: url(../img/polar-bear.png);
     background-attachment: fixed;
 }
+
+
 
 .rw-wrapper{
     width: 80%;
@@ -191,4 +205,8 @@ body{
             rotateY(40deg)
             rotateZ(0deg)
             skew(0deg,22deg);
+}
+.tree-text{
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
 }

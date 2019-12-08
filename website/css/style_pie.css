@@ -70,10 +70,22 @@ button{
   text-align: left;
 }
 
-object{
+object#fork{
   padding-top: 80pt;
-  height:40%;
-  transform: translate(-20px);
+  height:60%;
+  transform: translate(60px,20px);
 }
+
+object#knife{
+  padding-top: 80pt;
+  height:60%;
+  transform: translate(50px,20px);
+}
+
+#ebd{
+  transform: translate(0,30px);
+  height:550px
+}
+
 
 

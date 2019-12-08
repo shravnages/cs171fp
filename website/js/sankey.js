@@ -1,9 +1,9 @@
 var units = "Mt";
 
 // set the dimensions and margins of the graph
-var margin = {top: 10, right: 10, bottom: 10, left: 10},
+var margin = {top: 100, right: 10, bottom: 10, left: 10},
     width = 750 - margin.left - margin.right,
-    height = 400- margin.top - margin.bottom;
+    height = 500- margin.top - margin.bottom;
 
 // format variables
 var formatNumber = d3.format(",.0f"),    // zero decimal places

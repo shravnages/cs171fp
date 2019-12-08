@@ -45,7 +45,7 @@ MethaneTree.prototype.initVis = function(){
 
     console.log(vis.filteredData);
 
-    vis.margin = { top: 0, right: 0, bottom: 60, left: 0 };
+    vis.margin = { top: 60, right: 0, bottom: 60, left: 150 };
 
     var element = document.getElementById(vis.parentElement);
     var positionInfo = element.getBoundingClientRect();
@@ -53,8 +53,8 @@ MethaneTree.prototype.initVis = function(){
 
     console.log(positionInfo);
 
-    vis.width = width/1.5 - vis.margin.left - vis.margin.right,
-        vis.height = 600 - vis.margin.top - vis.margin.bottom;
+    vis.width = 750 - vis.margin.left - vis.margin.right,
+        vis.height = 700 - vis.margin.top - vis.margin.bottom;
 
     // SVG drawing area
     vis.svg = d3.select("#" + vis.parentElement).append("svg")
@@ -139,7 +139,7 @@ MethaneTree.prototype.updateVis = function(){
         .attr('width', function (d) { return d.x1 - d.x0; })
         .attr('height', function (d) { return d.y1 - d.y0; })
         .style("stroke", "black")
-        .style("fill", function(d, i) { return d3.interpolateGnBu((d.data.Total/1.5)/max_em); })
+        .style("fill", function(d, i) { return d3.interpolateBlues((d.data.Total/2)/max_em); })
         .on("click", function(d) {
             if (vis.clickable) {
                 vis.wrangleData(d.data.name);
@@ -167,12 +167,13 @@ MethaneTree.prototype.updateVis = function(){
         .transition()
         .duration(800)
         .attr("x", function(d){ return d.x0+5})    // +10 to adjust position (more right)
-        .attr("y", function(d){ return d.y0+15})    // +20 to adjust position (lower)
+        .attr("y", function(d){ return d.y0+20})    // +20 to adjust position (lower)
         .text(function(d){ if (d.x1-d.x0 > 60) {
             return d.data.name;
         }})
-        .attr("font-size", "15px")
-        .attr("fill", "#86592d");
+        .attr("font-size", "18px")
+        .attr("fill", "#86592d")
+        .attr("class","tree-text");
 
     texts.exit().remove();
 }
