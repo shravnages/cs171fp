@@ -11,8 +11,6 @@ var worldMeatData;
 var WorldVis;
 
 
-
-
 //loadData();
 
 d3.queue()
