@@ -21,3 +21,9 @@ Overview:
     3) Interactive Emission Chart - The most innovative visualization, we allow the user to "create a meal" that he or she had eaten today and see how many kg of CO2 is released into the earth for each meal. This is displayed on a cool plate setup.
     
     4) Interactive Flow Chart - We can see what goes into making meat, from the crops, etc. to the overall waste. The user can see an immense amount of waste in the picture.
+
+Our code vs. Libraries (in terms of code files)
+
+    Our code - .html: index; .js - BarChart, BubbleChart, main-html, main-world, main_bar, MethaneTree, PieChart, sankey, worldmap; .css - style, style_bar, style_flow, style_map, style_pie
+    
+    From external libraries: every other .css and .js file
