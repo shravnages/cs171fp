@@ -30,7 +30,7 @@ WorldVis.prototype.initVis = function(){
     vis.margin = { top: 40, right: 0, bottom: 60, left: 60 };
 
     vis.width = 800 - vis.margin.left - vis.margin.right,
-        vis.height = 400 - vis.margin.top - vis.margin.bottom;
+        vis.height = 800 - vis.margin.top - vis.margin.bottom;
 
     // SVG drawing area
     vis.svg = d3.select("#" + vis.parentElement).append("svg")
@@ -49,7 +49,8 @@ WorldVis.prototype.initVis = function(){
     vis.projection = d3.geoOrthographic()
         .scale(vis.state.scale)
         .clipAngle(90)
-        .translate([vis.width / 2, vis.height / 2]);
+        .translate([vis.width / 2, vis.height / 2-100])
+        .scale(250);
 
 
 

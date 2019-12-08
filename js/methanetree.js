@@ -53,7 +53,7 @@ MethaneTree.prototype.initVis = function(){
 
     console.log(positionInfo);
 
-    vis.width = width/1.5 - vis.margin.left - vis.margin.right,
+    vis.width = 600 - vis.margin.left - vis.margin.right,
         vis.height = 600 - vis.margin.top - vis.margin.bottom;
 
     // SVG drawing area

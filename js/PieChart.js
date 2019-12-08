@@ -148,8 +148,6 @@ PieChart.prototype.initVis = function(){
         .attr("stroke","#e9e9e9")
         .attr("stroke-width","3pt")
 
-    //console.log(document.getElementById("fork"))
-
 
 }
 
@@ -161,6 +159,9 @@ PieChart.prototype.wrangleData = function(){
     for(var i=0;i<selectedValue.length;i++){
         vis.displayData.push(vis.data.filter(d=>d.Product==selectedValue[i])[0])
     }
+    var total_emission=vis.displayData.map(d=>d.Total)
+    vis.sum=total_emission.reduce( (sum, current) => sum + current, 0 ).toFixed(1)
+    vis.sum_food=vis.displayData.length;
     //console.log(vis.displayData)
     vis.updateVis();
 }
@@ -206,12 +207,44 @@ PieChart.prototype.updateVis = function(){
     arcs.exit().remove();
 
     if(vis.displayData.length!=0){
+        d3.select("#weight")
+            .remove();
         vis.pie_group
             .append("text")
-            .attr("x",-190)
-            .attr("y",vis.height-180)
-            .text("Hover over the pie chart to see emission breakdowns!")
+            .attr("x",-60)
+            .attr("y",vis.height-195)
+            .text("Total weight of food picked: "+vis.sum_food+" kg")
+            .attr("id","weight")
+
+        vis.pie_group
+            .append("text")
+            .attr("x",-110)
+            .attr("y",vis.height-175)
+            .text("Hover over the pie chart to see the emission breakdown.")
             .attr("id","instruction")
+
+        d3.select(".total-emission")
+            .remove();
+        var text=vis.pie_group.append("text")
+            .attr("x",-35)
+            .attr("y",-15)
+            .attr("class","total-emission");
+
+        text.append("tspan")
+            .attr("x",-30)
+            .attr("dy",10)
+            .text("Total Emission: ")
+
+        text.append("tspan")
+            .attr("x",-30)
+            .attr("dy",20)
+            .text(vis.sum+"(kg CO2 eq)")
+    }
+    else{
+        d3.select(".total-emission")
+            .remove();
+        d3.select("#weight")
+            .remove();
     }
 
 }

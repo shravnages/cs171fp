@@ -21,6 +21,7 @@ h2 {
 	padding-right: 30px;
 	padding-left: 30px;
 }
+
 button{
   border-radius: 5pt;
   font-size: 10pt;
@@ -75,5 +76,4 @@ object{
   height:40%;
   transform: translate(-20px);
 }
-
 

@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 167c1bf400b1f3f60dcfbb4ff9548298cdc4e122
-/*
-
-Vanilla Template
-
-https://templatemo.com/tm-526-vanilla
-
-*/
-
 p {
   font-size: 15px;
   line-height: 25px;
@@ -20,8 +8,8 @@ section {
   background: #fff;
 }
 
-body { 
-  position: relative; /* we need this for the scrollspy */ 
+body {
+  position: relative; /* we need this for the scrollspy */
   font-size: 14px;
 }
 
@@ -202,7 +190,7 @@ a:hover { color: #FF0; }
   padding-right: 10px;
   padding-top: 10vh;
   padding-bottom: 10vh;
-  background-image: url(../img/part1_blur.jpg);
+  /*background-image: url(../img/part1_blur.jpg);*/
   background-attachment: fixed;
   background-color: #e4e4e4;
   min-height: 100vh;
@@ -241,6 +229,45 @@ h4 {
   font-size: 50pt;
 }
 
+.content-part1 {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+  /*background-image: url(../img/part1_blur.jpg);*/
+  background-attachment: fixed;
+  background-color: #e4e4e4;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-size: cover;
+  background-position: center center;
+}
+
+.content-part1 .left-text h4 {
+  font-size: 24px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.95);
+}
+
+.content-part2 .left-text h4 {
+  /*padding-top: 50px;*/
+  font-size: 24px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.95);
+}
+.content-part3 .left-text h4 {
+  font-size: 24px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.95);
+}
+
+.content-part4.left-text h4 {
+  font-size: 24px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.95);
+}
+
+
 .content-part1 .left-text .line-dec {
   width: 45px;
   height: 3px;
@@ -260,21 +287,19 @@ h4 {
   margin: 20px 0px 20px 0px;
 }
 
-.content-part1 .left-text p {
-  color: rgba(0, 0, 0, 0.97);
+.content-part4 .left-text .line-dec {
+  width: 45px;
+  height: 3px;
+  background-color: #ff7d27;
+  margin: 20px 0px 20px 0px;
+}
+.content-part5 .left-text .line-dec {
+  width: 45px;
+  height: 3px;
+  background-color: #ff7d27;
+  margin: 20px 0px 20px 0px;
 }
 
-.content-part1 .left-text ul {
-  padding: 0;
-  margin-top: 30px;
-  list-style: none;
-}
-
-.content-part1 .left-text ul li {
-  margin: 15px 0px;
-  font-weight: 600;
-  color: #fff;
-}
 
 .content-part1 .left-text .primary-button {
   margin: 30px 0px;
@@ -295,19 +320,36 @@ h4 {
   margin: 20px auto 15px auto;
 }
 
+.row align-items-center{
+  align-content: center;
+  padding-left: 100px;
+}
 
-.content-part2 {
+.content-part2{
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 10vh;
   padding-bottom: 10vh;
-  background-image: url(../img/part2.jpg);
+  /*background-image: url(../img/part1_blur.jpg);*/
   background-attachment: fixed;
   background-color: #e4e4e4;
   min-height: 100vh;
+
   background-size: cover;
   background-position: center center;
 }
+
+/*div.row align-items-center{*/
+/*  font-size: 24pt;*/
+/*  max-height:300px;*/
+/*  text-align: left;*/
+/*}*/
+
+span.section{
+  text-align: center;
+  font-size: 36pt;
+}
+
 
 .content-part2 .item img {
   width: 100%;
@@ -372,24 +414,44 @@ h4 {
   background-position: center center;
 }
 
-#chart-tree{
-  background-color: white;
-  height: 350pt;
-  text-align: center;
-  line-height: 350px;
-  font-size: 20pt;
-}
+/*#chart-tree{*/
+/*  background-color: white;*/
+/*  height: 350pt;*/
+/*  text-align: center;*/
+/*  line-height: 350px;*/
+/*  font-size: 20pt;*/
+/*}*/
 
 .content-part4 {
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 10vh;
   padding-bottom: 10vh;
-  background-image: url(../img/part5.jpg);
+  /*background-image: url(../img/part5.jpg);*/
   background-attachment: fixed;
   min-height: 100vh;
   background-size: cover;
   background-position: center center;
+}
+
+
+.content-part5 {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+  background-image: url(../img/part2.jpg);
+  background-attachment: fixed;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center center;
+}
+
+h3.chapter{
+  font-size:24pt
+}
+div#lastwords{
+  background-color: rgba(255,255,255,0.6);
 }
 
 /*.owl-pagination {*/
@@ -596,7 +658,7 @@ footer em {
 }
 
 @media (max-width: 767px){
-  
+
   .baner-content {
     padding-top: 30vh;
   }

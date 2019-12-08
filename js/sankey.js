@@ -2,7 +2,7 @@ var units = "Mt";
 
 // set the dimensions and margins of the graph
 var margin = {top: 10, right: 10, bottom: 10, left: 10},
-    width = 750 - margin.left - margin.right,
+    width = 500 - margin.left - margin.right,
     height = 400- margin.top - margin.bottom;
 
 // format variables
