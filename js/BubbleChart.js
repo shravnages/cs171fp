@@ -83,7 +83,7 @@ BubbleChart.prototype.initVis = function(){
         .attr("cx",20)
         .attr("cy",(d,i)=>vis.margin.top+vis.y(steps[i]))
         .attr("r",d=>Math.sqrt(vis.x(d))*10)
-        .attr("fill","red")
+        .attr("fill","#ea3030")
 
     vis.group.selectAll("text")
         .data(values)

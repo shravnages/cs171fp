@@ -8,7 +8,7 @@
 var colorMap;
 
 var colorScale = d3.scaleLinear()
-    .range(["blue", "yellow"]);
+    .range(["#43a5cb", "#317793"]);
 
 
 
@@ -90,8 +90,7 @@ WorldVis.prototype.createVisualization = function(){
 
     console.log(worldTopo);
 
-    var countryTooltip = d3.select("body").append("div").attr("class", "countryTooltip"),
-        countryList = d3.select("body").append("select").attr("name", "countries");
+    var countryTooltip = d3.select("body").append("div").attr("class", "countryTooltip");
 
 
     // Render the world by using the path generator
@@ -106,32 +105,22 @@ WorldVis.prototype.createVisualization = function(){
 
             console.log(countryName, vis.filteredData[countryName]);
 
-            if (vis.filteredData[countryName] != undefined){
+            if (vis.filteredData[countryName] != undefined) {
 
 
-
-                var rangeArray = d3.extent(Object.values(vis.filteredData));
+                var rangeArray = [200000, 10000000];
 
                 var range = rangeArray[1] - rangeArray[0];
-                var incr = range/5;
-
-                //console.log(rangeArray);
-
-                //console.log(rangeArray[0], 2*(rangeArray[0]));
-
-                //console.log(rangeArray)
-
-                //colorScale.domain([ (rangeArray[0]), (rangeArray[0] + incr), (rangeArray[0] + (2*incr)), (rangeArray[0] + (3*incr)), (rangeArray[0] + (4*incr)), (rangeArray[0] + (5*incr))]);
+                var incr = range / 5;
 
                 colorScale.domain(rangeArray);
 
-                //console.log(vis.filteredData[countryName]);
-
-                // console.log( colorScale(vis.filteredData[countryName]));
-
-
                 return colorScale(vis.filteredData[countryName]);
-            }})
+            }
+            else {
+                return "#ddf2d8";
+            }
+        })
         .on("mouseover", function(d) {
             console.log(d)
             console.log(d.properties.name);

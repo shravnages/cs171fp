@@ -190,7 +190,7 @@ PieChart.prototype.updateVis = function(){
         .attr("fill",(d,i)=>vis.color(i))
         .on("mouseover",function(){
             //CSS change
-            d3.select(this).attr("fill","red")
+            d3.select(this).attr("fill","#ea3030")
 
             //Add detail info
             var selectedID=this.id
